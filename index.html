@@ -3,35 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Tools Hub</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Professional Biography Comparison: Trump vs. Harris</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import and application */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        .comparison-card {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .comparison-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: currentColor;
+            border-radius: 9999px;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>AI Tools Hub</h1>
-        <input type="text" id="search" placeholder="Search AI tools...">
-    </header>
+<body class="min-h-screen p-4 sm:p-8">
 
-    <main>
-        <section class="categories">
-            <button data-category="all" class="active">All</button>
-            <button data-category="writing">Writing</button>
-            <button data-category="image">Image</button>
-            <button data-category="video">Video</button>
-            <button data-category="audio">Audio</button>
-            <button data-category="code">Code</button>
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-10 p-6 bg-white rounded-xl shadow-lg">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2">
+                Professional Trajectories: A Comparison
+            </h1>
+            <p class="text-xl text-gray-600">
+                Donald J. Trump and Kamala Harris
+            </p>
+        </header>
+
+        <!-- Main Comparison Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Donald J. Trump Card -->
+            <div class="comparison-card bg-white p-6 rounded-xl border border-gray-200">
+                <h2 class="text-3xl font-bold text-red-700 mb-6 border-b-4 border-red-700 pb-2">Donald J. Trump</h2>
+                <div class="space-y-6 text-gray-700">
+                    
+                    <div>
+                        <h3 class="section-title text-red-700 font-semibold text-lg">Foundation and Early Career</h3>
+                        <p class="text-base leading-relaxed">
+                            A graduate of the Wharton School of Finance, Mr. Trump built his career on real estate development, taking over and expanding his father's company, rebranding it as <strong class="font-medium">The Trump Organization</strong>. His early focus was on acquiring and building prominent properties, including skyscrapers, hotels, casinos, and golf courses, primarily in New York City before expanding internationally.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title text-red-700 font-semibold text-lg">Key Non-Political Milestones</h3>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li><strong class="font-medium">Branding and Media:</strong> Successfully leveraged his personal brand through licensing ventures and the publication of over fourteen books, including the business classic, <em class="italic">The Art of the Deal</em>.</li>
+                            <li><strong class="font-medium">Television:</strong> Gained extensive national prominence as the executive producer and host of the reality television series <em class="italic">The Apprentice</em> from 2004 to 2015.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title text-red-700 font-semibold text-lg">Highest Public Office</h3>
+                        <p class="text-base leading-relaxed">
+                            Entered politics with no prior governmental or military experience, ultimately serving as the <strong class="font-medium">45th President of the United States (2017–2021)</strong>, and later, the <strong class="font-medium">47th President of the United States</strong>. His presidencies focused on tax reform, trade renegotiations (USMCA), deregulation, and securing hundreds of federal judicial appointments, including three Justices to the Supreme Court.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Kamala Harris Card -->
+            <div class="comparison-card bg-white p-6 rounded-xl border border-gray-200">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-4 border-blue-700 pb-2">Kamala Harris</h2>
+                <div class="space-y-6 text-gray-700">
+
+                    <div>
+                        <h3 class="section-title text-blue-700 font-semibold text-lg">Foundation and Early Career</h3>
+                        <p class="text-base leading-relaxed">
+                            After earning her J.D., Ms. Harris established a traditional political trajectory within the legal field. She began her career as a <strong class="font-medium">Deputy District Attorney in Alameda County, California</strong>, prosecuting cases involving sexual assault, drug trafficking, and gang violence, and later served in the San Francisco City Attorney’s Office.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title text-blue-700 font-semibold text-lg">Key Political Milestones</h3>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li><strong class="font-medium">District Attorney:</strong> Elected District Attorney of San Francisco (2004–2011), implementing policy focused on reducing recidivism and handling complex criminal cases.</li>
+                            <li><strong class="font-medium">California Attorney General:</strong> Elected Attorney General of California (2011–2017), the first woman, first African American, and first South Asian American to hold the post.</li>
+                            <li><strong class="font-medium">U.S. Senator:</strong> Served as the U.S. Senator for California (2017–2021), sitting on powerful committees including the Select Committee on Intelligence and the Judiciary Committee.</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="section-title text-blue-700 font-semibold text-lg">Highest Public Office</h3>
+                        <p class="text-base leading-relaxed">
+                            Served as the <strong class="font-medium">49th Vice President of the United States (2021–2025)</strong>, becoming the first female, first African American, and first South Asian American Vice President. Her tenure emphasized areas like voting rights, border issues, and infrastructure investment.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary & Contrast Section -->
+        <section class="mt-12 p-8 bg-white rounded-xl shadow-lg border-t-4 border-gray-300">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Professional Contrast Summary</h2>
+            <div class="space-y-4 text-lg text-gray-700">
+                <p>
+                    The professional paths of Donald Trump and Kamala Harris offer a profound study in contrast. Mr. Trump's ascent to the presidency was marked by a highly successful career in <strong class="font-medium">private sector entrepreneurship and media</strong>, positioning him as a political "outsider" who leveraged brand recognition and television celebrity.
+                </p>
+                <p>
+                    In contrast, Ms. Harris's career followed a traditional ladder of <strong class="font-medium">public service and law</strong>, progressing through local and state legal offices before entering the legislative and executive branches at the federal level. Her background is characterized by historic appointments as a prosecutor, state executive, and Vice President.
+                </p>
+                <p>
+                    These diverging career foundations—one rooted in commerce and entertainment, the other in law and legislative governance—have shaped distinctly different approaches to executive leadership and public policy.
+                </p>
+            </div>
         </section>
 
-        <section class="tools" id="tools">
-            <!-- AI tool cards go here -->
-        </section>
-    </main>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 AI Tools Hub. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
