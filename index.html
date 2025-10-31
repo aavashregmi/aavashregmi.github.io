@@ -6,10 +6,8 @@
     <title>Nepal: Land of the Himalayas and Cultural Depth</title>
     <link rel="icon" href="favicon1.png" type="image/png">
 
-    <!-- Load Tailwind CSS -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Configure Tailwind for custom colors, fonts, animations -->
     <script>
         tailwind.config = {
             theme: {
@@ -45,47 +43,51 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-        
+
         .animated-delay-1 { animation-delay: 0.3s; }
         .animated-delay-2 { animation-delay: 0.6s; }
         .animated-delay-3 { animation-delay: 0.9s; }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 10px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
 
         .card-hover:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
             border-color: #2563eb;
         }
-        .animate-on-load { opacity: 0; transform: translateY(20px); }
+
+        .animate-on-load {
+            opacity: 0;
+            transform: translateY(20px);
+        }
     </style>
 </head>
 <body class="bg-himalayan-mist text-mountain-dark">
 
     <!-- Header Section -->
     <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <img 
-            src="https://placehold.co/1200x800/1e3a8a/ffffff?text=Majestic+Himalayas+-+Nepal" 
-            alt="Majestic Himalayas, Nepal Placeholder" 
+        <img src="https://placehold.co/1200x800/1e3a8a/ffffff?text=Majestic+Himalayas+-+Nepal" 
+            alt="Majestic Himalayas, Nepal Placeholder"
             class="absolute inset-0 h-full w-full object-cover brightness-75 transition-opacity duration-1000"
             onerror="this.onerror=null;this.src='https://placehold.co/1200x800/1e3a8a/ffffff?text=Himalayas';"
         >
         <div class="relative z-10 text-center p-8 bg-black bg-opacity-40 rounded-xl max-w-4xl mx-auto backdrop-blur-sm">
-            <h1 class="text-6xl sm:text-7xl font-serif font-extrabold text-white mb-4 animate-on-load animation-fade-in-up">
-                Namaste, Nepal!
-            </h1>
-            <p class="text-2xl sm:text-3xl font-light text-himalayan-mist mb-8 animate-on-load animation-fade-in-up animated-delay-1">
-                The Roof of the World.
-            </p>
-            <a href="#about" class="inline-block px-8 py-3 bg-nepal-red text-white font-bold rounded-full text-lg hover:bg-red-800 transition duration-300 animate-on-load animation-fade-in-up animated-delay-2 animation-pulse-color">
-                Explore the Culture
-            </a>
+            <h1 class="text-6xl sm:text-7xl font-serif font-extrabold text-white mb-4 animate-on-load animation-fade-in-up">Namaste, Nepal!</h1>
+            <p class="text-2xl sm:text-3xl font-light text-himalayan-mist mb-8 animate-on-load animation-fade-in-up animated-delay-1">The Roof of the World.</p>
+            <a href="#about" class="inline-block px-8 py-3 bg-nepal-red text-white font-bold rounded-full text-lg hover:bg-red-800 transition duration-300 animate-on-load animation-fade-in-up animated-delay-2 animation-pulse-color">Explore the Culture</a>
         </div>
     </header>
 
-    <!-- Main Content Sections -->
+    <!-- Main Content -->
     <main class="py-16 px-4 sm:px-8">
 
         <!-- About Nepal Section -->
@@ -95,23 +97,17 @@
                 <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-b-4 border-nepal-blue transition duration-500">
                     <div class="text-4xl text-nepal-red mb-3">🏔️</div>
                     <h3 class="text-2xl font-semibold mb-2 text-mountain-dark">Geography & Himalayas</h3>
-                    <p class="text-gray-600">
-                        Home to eight of the world's ten highest peaks, including Mount Everest (Sagarmatha), Nepal's landscape dramatically shifts from the tropical plains of the Terai to the frigid Himalayan peaks.
-                    </p>
+                    <p class="text-gray-600">Home to eight of the world's ten highest peaks, including Mount Everest (Sagarmatha), Nepal's landscape dramatically shifts from the tropical plains of the Terai to the frigid Himalayan peaks.</p>
                 </div>
                 <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-b-4 border-nepal-blue transition duration-500 animated-delay-1">
                     <div class="text-4xl text-nepal-red mb-3">🙏</div>
                     <h3 class="text-2xl font-semibold mb-2 text-mountain-dark">Spiritual Heart</h3>
-                    <p class="text-gray-600">
-                        The birthplace of Siddhartha Gautama (Buddha) and a central point for Hinduism, Nepal is a mosaic of faiths. Its cultural life is expressed through ancient temples, festivals, and the unique Newari architecture.
-                    </p>
+                    <p class="text-gray-600">The birthplace of Siddhartha Gautama (Buddha) and a central point for Hinduism, Nepal is a mosaic of faiths. Its cultural life is expressed through ancient temples, festivals, and the unique Newari architecture.</p>
                 </div>
                 <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-b-4 border-nepal-blue transition duration-500 animated-delay-2">
                     <div class="text-4xl text-nepal-red mb-3">🧑‍🤝‍🧑</div>
                     <h3 class="text-2xl font-semibold mb-2 text-mountain-dark">Diversity & Hospitality</h3>
-                    <p class="text-gray-600">
-                        Nepal is home to over 120 ethnic groups speaking numerous languages. Known globally for their resilience and profound hospitality, the Nepalese people embrace guests with the famous "Namaste."
-                    </p>
+                    <p class="text-gray-600">Nepal is home to over 120 ethnic groups speaking numerous languages. Known globally for their resilience and profound hospitality, the Nepalese people embrace guests with the famous "Namaste."</p>
                 </div>
             </div>
         </section>
@@ -120,46 +116,38 @@
         <section id="locations" class="max-w-7xl mx-auto py-12">
             <h2 class="text-5xl font-serif font-bold text-center text-nepal-blue mb-12 animate-on-load animation-fade-in-up">Must-Visit Destinations</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                
                 <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animate-on-load animation-fade-in-up">
                     <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
-                         src="https://i.pinimg.com/736x/c8/cd/78/c8cd78e8ca4413c84ef235332d5a7bec.jpg" 
-                         alt="Kathmandu Durbar Square: Ancient Temples and Architecture"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/800000/ffffff?text=Kathmandu+Image+Failed+to+Load';"
-                         >
+                        src="https://i.pinimg.com/736x/c8/cd/78/c8cd78e8ca4413c84ef235332d5a7bec.jpg" 
+                        alt="Kathmandu Durbar Square" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/800000/ffffff?text=Kathmandu+Image+Failed+to+Load';">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
                         <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Kathmandu Valley</h3>
                     </div>
                 </div>
-
                 <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animated-delay-1 animate-on-load animation-fade-in-up">
                     <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
-                         src="https://i.pinimg.com/1200x/ca/6f/21/ca6f215d7a0a37b8d73bb06956ead950.jpg" 
-                         alt="Everest Base Camp: Majestic Himalayan Peaks"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/004080/ffffff?text=Everest+Image+Failed+to+Load';"
-                         >
+                        src="https://i.pinimg.com/1200x/ca/6f/21/ca6f215d7a0a37b8d73bb06956ead950.jpg" 
+                        alt="Everest Base Camp" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/004080/ffffff?text=Everest+Image+Failed+to+Load';">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
                         <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Everest Region</h3>
                     </div>
                 </div>
-
                 <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animated-delay-2 animate-on-load animation-fade-in-up">
                     <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
-                         src="https://i.pinimg.com/1200x/2f/08/93/2f0893b8ce893066684ed154a51cca6e.jpg" 
-                         alt="Pokhara: Lakeside Serenity and Mountain Views"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/008040/ffffff?text=Pokhara+Image+Failed+to+Load';"
-                         >
+                        src="https://i.pinimg.com/1200x/2f/08/93/2f0893b8ce893066684ed154a51cca6e.jpg" 
+                        alt="Pokhara" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/008040/ffffff?text=Pokhara+Image+Failed+to+Load';">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
                         <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Pokhara</h3>
                     </div>
                 </div>
-
                 <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animated-delay-3 animate-on-load animation-fade-in-up">
                     <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
-                         src="https://i.pinimg.com/1200x/7d/b6/23/7db623f1364707b95ad870b1ba308e0e.jpg" 
-                         alt="Chitwan National Park: Wildlife and Jungle Safari"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/404040/ffffff?text=Chitwan+Image+Failed+to+Load';"
-                         >
+                        src="https://i.pinimg.com/1200x/7d/b6/23/7db623f1364707b95ad870b1ba308e0e.jpg" 
+                        alt="Chitwan National Park" 
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/404040/ffffff?text=Chitwan+Image+Failed+to+Load';">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
                         <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Chitwan National Park</h3>
                     </div>
@@ -185,17 +173,14 @@
 
             <!-- PayPal Donate Button -->
             <div class="mt-4">
-                <form action="https://www.paypal.com/donate" method="post" target="_top">
-                    <input type="hidden" name="hosted_button_id" value="AYo-eRkUc3A0sSIaqRLUdRwhamTebTj-snKdhQuGapxBRllpVc9rHc3SohM1Jwd6htBD4s7FJ_3qcmwg">
-                    <button type="submit" class="px-6 py-2 bg-nepal-red text-white font-bold rounded-full hover:bg-red-800 transition duration-300">
-                        Donate via PayPal
-                    </button>
-                </form>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=TX68WL95MYHFS" target="_blank" class="px-6 py-2 bg-nepal-red text-white font-bold rounded-full hover:bg-red-800 transition duration-300">
+                    Donate via PayPal
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Scroll Animation (Fade-In) -->
+    <!-- Scroll Animation JS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
@@ -211,5 +196,6 @@
             document.querySelectorAll('.animate-on-load').forEach(element => observer.observe(element));
         });
     </script>
+
 </body>
 </html>
