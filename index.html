@@ -3,136 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Biography Comparison: Trump vs. Harris</title>
+    <title>Nepal: Land of the Himalayas and Cultural Depth</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind for custom colors and fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nepal-blue': '#2563eb', /* Primary blue */
+                        'nepal-red': '#dc2626',  /* Accent red */
+                        'himalayan-mist': '#e0f2f1', /* Light background */
+                        'mountain-dark': '#0f172a', /* Dark text */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseColor: {
+                            '0%, 100%': { 'box-shadow': '0 0 0 0 rgba(220, 38, 38, 0.7)' },
+                            '50%': { 'box-shadow': '0 0 0 10px rgba(220, 38, 38, 0)' },
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'pulse-color': 'pulseColor 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Custom font import and application */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light gray background */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        
+        .animated-delay-1 { animation-delay: 0.3s; }
+        .animated-delay-2 { animation-delay: 0.6s; }
+        .animated-delay-3 { animation-delay: 0.9s; }
+
+        /* Custom scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .comparison-card {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
         }
-        .comparison-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
         }
-        .section-title {
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.75rem;
+
+        /* Hover effect for cards */
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #2563eb;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background-color: currentColor;
-            border-radius: 9999px;
+        
+        /* Initial state for animations */
+        .animate-on-load {
+            opacity: 0;
+            transform: translateY(20px);
         }
     </style>
 </head>
-<body class="min-h-screen p-4 sm:p-8">
+<body class="bg-himalayan-mist text-mountain-dark">
 
-    <div class="max-w-7xl mx-auto">
-        <!-- Header -->
-        <header class="text-center mb-10 p-6 bg-white rounded-xl shadow-lg">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2">
-                Professional Trajectories: A Comparison
+    <!-- Header Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image/Placeholder -->
+        <img 
+            src="https://placehold.co/1200x800/1e3a8a/ffffff?text=Majestic+Himalayas+-+Nepal" 
+            alt="Majestic Himalayas, Nepal Placeholder" 
+            class="absolute inset-0 h-full w-full object-cover brightness-75 transition-opacity duration-1000"
+            onerror="this.onerror=null;this.src='https://placehold.co/1200x800/1e3a8a/ffffff?text=Himalayas';"
+        >
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center p-8 bg-black bg-opacity-40 rounded-xl max-w-4xl mx-auto backdrop-blur-sm">
+            <h1 class="text-6xl sm:text-7xl font-serif font-extrabold text-white mb-4 animate-on-load animation-fade-in-up">
+                Namaste, Nepal!
             </h1>
-            <p class="text-xl text-gray-600">
-                Donald J. Trump and Kamala Harris
+            <p class="text-2xl sm:text-3xl font-light text-himalayan-mist mb-8 animate-on-load animation-fade-in-up animated-delay-1">
+                The Roof of the World.
             </p>
-        </header>
-
-        <!-- Main Comparison Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-            <!-- Donald J. Trump Card -->
-            <div class="comparison-card bg-white p-6 rounded-xl border border-gray-200">
-                <h2 class="text-3xl font-bold text-red-700 mb-6 border-b-4 border-red-700 pb-2">Donald J. Trump</h2>
-                <div class="space-y-6 text-gray-700">
-                    
-                    <div>
-                        <h3 class="section-title text-red-700 font-semibold text-lg">Foundation and Early Career</h3>
-                        <p class="text-base leading-relaxed">
-                            A graduate of the Wharton School of Finance, Mr. Trump built his career on real estate development, taking over and expanding his father's company, rebranding it as <strong class="font-medium">The Trump Organization</strong>. His early focus was on acquiring and building prominent properties, including skyscrapers, hotels, casinos, and golf courses, primarily in New York City before expanding internationally.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="section-title text-red-700 font-semibold text-lg">Key Non-Political Milestones</h3>
-                        <ul class="list-disc list-inside space-y-2 pl-4">
-                            <li><strong class="font-medium">Branding and Media:</strong> Successfully leveraged his personal brand through licensing ventures and the publication of over fourteen books, including the business classic, <em class="italic">The Art of the Deal</em>.</li>
-                            <li><strong class="font-medium">Television:</strong> Gained extensive national prominence as the executive producer and host of the reality television series <em class="italic">The Apprentice</em> from 2004 to 2015.</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="section-title text-red-700 font-semibold text-lg">Highest Public Office</h3>
-                        <p class="text-base leading-relaxed">
-                            Entered politics with no prior governmental or military experience, ultimately serving as the <strong class="font-medium">45th President of the United States (2017–2021)</strong>, and later, the <strong class="font-medium">47th President of the United States</strong>. His presidencies focused on tax reform, trade renegotiations (USMCA), deregulation, and securing hundreds of federal judicial appointments, including three Justices to the Supreme Court.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Kamala Harris Card -->
-            <div class="comparison-card bg-white p-6 rounded-xl border border-gray-200">
-                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-4 border-blue-700 pb-2">Kamala Harris</h2>
-                <div class="space-y-6 text-gray-700">
-
-                    <div>
-                        <h3 class="section-title text-blue-700 font-semibold text-lg">Foundation and Early Career</h3>
-                        <p class="text-base leading-relaxed">
-                            After earning her J.D., Ms. Harris established a traditional political trajectory within the legal field. She began her career as a <strong class="font-medium">Deputy District Attorney in Alameda County, California</strong>, prosecuting cases involving sexual assault, drug trafficking, and gang violence, and later served in the San Francisco City Attorney’s Office.
-                        </p>
-                    </div>
-
-                    <div>
-                        <h3 class="section-title text-blue-700 font-semibold text-lg">Key Political Milestones</h3>
-                        <ul class="list-disc list-inside space-y-2 pl-4">
-                            <li><strong class="font-medium">District Attorney:</strong> Elected District Attorney of San Francisco (2004–2011), implementing policy focused on reducing recidivism and handling complex criminal cases.</li>
-                            <li><strong class="font-medium">California Attorney General:</strong> Elected Attorney General of California (2011–2017), the first woman, first African American, and first South Asian American to hold the post.</li>
-                            <li><strong class="font-medium">U.S. Senator:</strong> Served as the U.S. Senator for California (2017–2021), sitting on powerful committees including the Select Committee on Intelligence and the Judiciary Committee.</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="section-title text-blue-700 font-semibold text-lg">Highest Public Office</h3>
-                        <p class="text-base leading-relaxed">
-                            Served as the <strong class="font-medium">49th Vice President of the United States (2021–2025)</strong>, becoming the first female, first African American, and first South Asian American Vice President. Her tenure emphasized areas like voting rights, border issues, and infrastructure investment.
-                        </p>
-                    </div>
-
-                </div>
-            </div>
+            <a href="#about" class="inline-block px-8 py-3 bg-nepal-red text-white font-bold rounded-full text-lg hover:bg-red-800 transition duration-300 animate-on-load animation-fade-in-up animated-delay-2 animation-pulse-color">
+                Explore the Culture
+            </a>
         </div>
+    </header>
 
-        <!-- Summary & Contrast Section -->
-        <section class="mt-12 p-8 bg-white rounded-xl shadow-lg border-t-4 border-gray-300">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Professional Contrast Summary</h2>
-            <div class="space-y-4 text-lg text-gray-700">
-                <p>
-                    The professional paths of Donald Trump and Kamala Harris offer a profound study in contrast. Mr. Trump's ascent to the presidency was marked by a highly successful career in <strong class="font-medium">private sector entrepreneurship and media</strong>, positioning him as a political "outsider" who leveraged brand recognition and television celebrity.
-                </p>
-                <p>
-                    In contrast, Ms. Harris's career followed a traditional ladder of <strong class="font-medium">public service and law</strong>, progressing through local and state legal offices before entering the legislative and executive branches at the federal level. Her background is characterized by historic appointments as a prosecutor, state executive, and Vice President.
-                </p>
-                <p>
-                    These diverging career foundations—one rooted in commerce and entertainment, the other in law and legislative governance—have shaped distinctly different approaches to executive leadership and public policy.
-                </p>
+    <!-- Main Content Sections -->
+    <main class="py-16 px-4 sm:px-8">
+
+        <!-- About Nepal Section -->
+        <section id="about" class="max-w-6xl mx-auto mb-16 animate-on-load animation-fade-in-up">
+            <h2 class="text-5xl font-serif font-bold text-center text-nepal-blue mb-10">A Land of Extremes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Geography -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-b-4 border-nepal-blue transition duration-500">
+                    <div class="text-4xl text-nepal-red mb-3">🏔️</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-mountain-dark">Geography & Himalayas</h3>
+                    <p class="text-gray-600">
+                        Home to eight of the world's ten highest peaks, including Mount Everest (Sagarmatha), Nepal's landscape dramatically shifts from the tropical plains of the Terai to the frigid Himalayan peaks.
+                    </p>
+                </div>
+                <!-- Card 2: Culture -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-b-4 border-nepal-blue transition duration-500 animated-delay-1">
+                    <div class="text-4xl text-nepal-red mb-3">🙏</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-mountain-dark">Spiritual Heart</h3>
+                    <p class="text-gray-600">
+                        The birthplace of Siddhartha Gautama (Buddha) and a central point for Hinduism, Nepal is a mosaic of faiths. Its cultural life is expressed through ancient temples, festivals, and the unique Newari architecture.
+                    </p>
+                </div>
+                <!-- Card 3: People -->
+                <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-b-4 border-nepal-blue transition duration-500 animated-delay-2">
+                    <div class="text-4xl text-nepal-red mb-3">🧑‍🤝‍🧑</div>
+                    <h3 class="text-2xl font-semibold mb-2 text-mountain-dark">Diversity & Hospitality</h3>
+                    <p class="text-gray-600">
+                        Nepal is home to over 120 ethnic groups speaking numerous languages. Known globally for their resilience and profound hospitality, the Nepalese people embrace guests with the famous "Namaste."
+                    </p>
+                </div>
             </div>
         </section>
 
-    </div>
+        <!-- Gallery/Key Locations Section -->
+        <section id="locations" class="max-w-7xl mx-auto py-12">
+            <h2 class="text-5xl font-serif font-bold text-center text-nepal-blue mb-12 animate-on-load animation-fade-in-up">Must-Visit Destinations</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Destination 1: Kathmandu Valley -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animate-on-load animation-fade-in-up">
+                    <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
+                         src="https://placehold.co/600x400/800000/ffffff?text=Kathmandu+Durbar+Square" 
+                         alt="Kathmandu Durbar Square Placeholder">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
+                        <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Kathmandu Valley</h3>
+                    </div>
+                </div>
 
+                <!-- Destination 2: Everest Region -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animated-delay-1 animate-on-load animation-fade-in-up">
+                    <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
+                         src="https://placehold.co/600x400/004080/ffffff?text=Everest+Base+Camp" 
+                         alt="Everest Base Camp Placeholder">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
+                        <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Everest Region</h3>
+                    </div>
+                </div>
+
+                <!-- Destination 3: Pokhara -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animated-delay-2 animate-on-load animation-fade-in-up">
+                    <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
+                         src="https://placehold.co/600x400/008040/ffffff?text=Pokhara+Phewa+Lake" 
+                         alt="Pokhara Phewa Lake Placeholder">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
+                        <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Pokhara</h3>
+                    </div>
+                </div>
+
+                <!-- Destination 4: Chitwan National Park -->
+                <div class="group relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition duration-500 animated-delay-3 animate-on-load animation-fade-in-up">
+                    <img class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" 
+                         src="https://placehold.co/600x400/404040/ffffff?text=Chitwan+Rhino" 
+                         alt="Chitwan National Park Placeholder">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-end">
+                        <h3 class="text-white text-xl font-bold opacity-100 group-hover:opacity-100 transition duration-300">Chitwan National Park</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-mountain-dark text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 text-center">
+            <p class="text-lg font-bold mb-4">"The world is a book, and those who do not travel read only a page."</p>
+            <p class="text-sm text-gray-400">
+                &copy; 2024 Nepal Explorer. Designed for a captivating web experience.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Scroll Animation (Fade-In) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-load').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
