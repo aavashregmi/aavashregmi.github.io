@@ -1,0 +1,91 @@
+/* Fonts & Global */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+a { text-decoration: none; color: inherit; }
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(15,15,15,0.9);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    z-index: 1000;
+}
+
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links li a { transition: color 0.3s; }
+.nav-links li a:hover { color: #00d4ff; }
+
+#hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1f1f1f, #111111);
+    text-align: center;
+}
+
+#hero h1 { font-size: 3rem; margin-bottom: 10px; animation: fadeIn 1s ease forwards; }
+#hero p { font-size: 1.2rem; margin-bottom: 20px; animation: fadeIn 1.5s ease forwards; }
+.btn {
+    padding: 10px 30px;
+    background: #00d4ff;
+    color: #111;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+.btn:hover { transform: scale(1.1); }
+
+section { padding: 100px 50px; }
+section h2 { font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+
+.projects-container { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+.project-card {
+    background: #1a1a1a;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px #00d4ff; }
+
+form { display: flex; flex-direction: column; gap: 20px; max-width: 500px; margin: auto; }
+input, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+}
+button {
+    padding: 12px;
+    background: #00d4ff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover { background: #00bcd4; }
+
+footer { text-align: center; padding: 20px; background: #111; }
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .projects-container { flex-direction: column; align-items: center; }
+    header { padding: 15px 20px; }
+}
