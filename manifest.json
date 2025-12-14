@@ -1,6 +1,7 @@
 {
   "name": "Aavash Portfolio",
   "short_name": "Portfolio",
+  "description": "My portfolio website showcasing web design and development projects.",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
