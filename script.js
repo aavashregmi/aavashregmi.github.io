@@ -1,96 +1,79 @@
-// Initialize Lucide Icons
-lucide.createIcons();
+// --- Custom Cursor Logic ---
+const cursor = document.querySelector('.cursor');
+const cursor2 = document.querySelector('.cursor2');
 
-// Set Current Year in Footer
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Mouse Glow Effect
-const glowBg = document.getElementById('glow-bg');
-window.addEventListener('mousemove', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    glowBg.style.background = `radial-gradient(600px at ${x}px ${y}px, rgba(99, 102, 241, 0.15), transparent 80%)`;
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+    cursor2.style.left = e.clientX + "px";
+    cursor2.style.top = e.clientY + "px";
 });
 
-// Navbar Scroll Effect
-const navbar = document.getElementById('navbar');
+// Hover effect on interactive elements
+const interactables = document.querySelectorAll('a, button, .project-card, input, textarea');
+
+interactables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.style.width = '0px';
+        cursor.style.height = '0px';
+        cursor2.style.width = '50px';
+        cursor2.style.height = '50px';
+        cursor2.style.borderColor = 'var(--accent-glow)';
+        cursor2.style.backgroundColor = 'rgba(139, 92, 246, 0.1)';
+    });
+
+    el.addEventListener('mouseleave', () => {
+        cursor.style.width = '8px';
+        cursor.style.height = '8px';
+        cursor2.style.width = '40px';
+        cursor2.style.height = '40px';
+        cursor2.style.borderColor = 'var(--text-color)';
+        cursor2.style.backgroundColor = 'transparent';
+    });
+});
+
+// --- Sticky Navbar on Scroll ---
+const navbar = document.querySelector('.navbar');
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('glass-nav', 'py-4');
-        navbar.classList.remove('bg-transparent', 'py-6');
-    } else {
-        navbar.classList.add('bg-transparent', 'py-6');
-        navbar.classList.remove('glass-nav', 'py-4');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Mobile Menu Toggle
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = menuBtn.querySelector('i');
-const mobileLinks = document.querySelectorAll('.mobile-link');
+// --- Scroll Reveal Animation ---
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+});
 
-let isMenuOpen = false;
+document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
-function toggleMenu() {
-    isMenuOpen = !isMenuOpen;
-    if (isMenuOpen) {
-        mobileMenu.classList.remove('hidden');
-        menuIcon.setAttribute('data-lucide', 'x');
-    } else {
-        mobileMenu.classList.add('hidden');
-        menuIcon.setAttribute('data-lucide', 'menu');
-    }
-    lucide.createIcons();
+// --- Smooth Scrolling for Anchors ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// --- Real Date & Time for Visitor ---
+function updateVisitorTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+    const formattedTime = now.toLocaleString('en-US', options);
+    const visitorTime = document.getElementById('visitor-time');
+    if(visitorTime) visitorTime.textContent = `Current Date & Time: ${formattedTime}`;
 }
 
-menuBtn.addEventListener('click', toggleMenu);
-
-// Close mobile menu when a link is clicked
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (isMenuOpen) toggleMenu();
-    });
-});
-
-// Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-});
-
-revealElements.forEach(el => revealObserver.observe(el));
-
-// Contact Form Handler
-const contactForm = document.getElementById('contact-form');
-const submitBtn = document.getElementById('submit-btn');
-const btnText = submitBtn.querySelector('span');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Disable button and show loading state
-    submitBtn.disabled = true;
-    const originalText = btnText.textContent;
-    btnText.textContent = 'Sending...';
-    
-    // Simulate API call
-    setTimeout(() => {
-        alert("Thanks for reaching out! I'll get back to you soon.");
-        
-        // Reset form and button
-        contactForm.reset();
-        submitBtn.disabled = false;
-        btnText.textContent = originalText;
-    }, 1500);
-});
+// Update every second
+setInterval(updateVisitorTime, 1000);
+updateVisitorTime(); // Initial call
