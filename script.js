@@ -1,67 +1,96 @@
-// Custom Cursor Logic
-const cursor = document.querySelector('.cursor');
-const cursor2 = document.querySelector('.cursor2');
+// Initialize Lucide Icons
+lucide.createIcons();
 
-document.addEventListener('mousemove', function(e) {
-    cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+// Set Current Year in Footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Mouse Glow Effect
+const glowBg = document.getElementById('glow-bg');
+window.addEventListener('mousemove', (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    glowBg.style.background = `radial-gradient(600px at ${x}px ${y}px, rgba(99, 102, 241, 0.15), transparent 80%)`;
 });
 
-// Add hover effect to interactive elements
-const interactables = document.querySelectorAll('a, button, .project-card, input, textarea');
-
-interactables.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.style.width = '0px';
-        cursor.style.height = '0px';
-        cursor2.style.width = '50px';
-        cursor2.style.height = '50px';
-        cursor2.style.borderColor = 'var(--accent-glow)';
-        cursor2.style.backgroundColor = 'rgba(139, 92, 246, 0.1)';
-    });
-
-    el.addEventListener('mouseleave', () => {
-        cursor.style.width = '8px';
-        cursor.style.height = '8px';
-        cursor2.style.width = '40px';
-        cursor2.style.height = '40px';
-        cursor2.style.borderColor = 'var(--text-color)';
-        cursor2.style.backgroundColor = 'transparent';
-    });
-});
-
-// Sticky Navbar on Scroll
-const navbar = document.querySelector('.navbar');
-
+// Navbar Scroll Effect
+const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+        navbar.classList.add('glass-nav', 'py-4');
+        navbar.classList.remove('bg-transparent', 'py-6');
     } else {
-        navbar.classList.remove('scrolled');
+        navbar.classList.add('bg-transparent', 'py-6');
+        navbar.classList.remove('glass-nav', 'py-4');
     }
 });
 
-// Scroll Reveal Animation (Intersection Observer)
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } 
-        // Optional: Remove class to re-animate when scrolling up
-        // else {
-        //     entry.target.classList.remove('show');
-        // }
+// Mobile Menu Toggle
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = menuBtn.querySelector('i');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+let isMenuOpen = false;
+
+function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.setAttribute('data-lucide', 'x');
+    } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.setAttribute('data-lucide', 'menu');
+    }
+    lucide.createIcons();
+}
+
+menuBtn.addEventListener('click', toggleMenu);
+
+// Close mobile menu when a link is clicked
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMenu();
     });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden');
-hiddenElements.forEach((el) => observer.observe(el));
+// Scroll Reveal Animation
+const revealElements = document.querySelectorAll('.reveal');
 
-// Smooth Scrolling for Anchors (Backup for Safari)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+        }
     });
+}, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Contact Form Handler
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const btnText = submitBtn.querySelector('span');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Disable button and show loading state
+    submitBtn.disabled = true;
+    const originalText = btnText.textContent;
+    btnText.textContent = 'Sending...';
+    
+    // Simulate API call
+    setTimeout(() => {
+        alert("Thanks for reaching out! I'll get back to you soon.");
+        
+        // Reset form and button
+        contactForm.reset();
+        submitBtn.disabled = false;
+        btnText.textContent = originalText;
+    }, 1500);
 });
