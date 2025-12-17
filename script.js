@@ -1,137 +1,109 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Animation Setup (GSAP) ---
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero Text Entrance
-    const tl = gsap.timeline();
-    tl.from(".reveal-text", {
-        y: 100,
-        opacity: 0,
-        skewY: 10,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power4.out"
-    })
-    .from(".hero-sub", { opacity: 0, y: 20, duration: 1 }, "-=0.8")
-    .from("nav", { y: -50, opacity: 0, duration: 1 }, "-=1");
-
-    // Marquee Rotation Effect on Scroll
-    gsap.to(".marquee-section", {
-        scrollTrigger: {
-            trigger: ".marquee-section",
-            start: "top bottom",
-            scrub: 1
-        },
-        rotate: 2,
-        scale: 1,
-        ease: "none"
-    });
-
-    // --- 2. Custom Cursor Magnetic Effect ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorCircle = document.querySelector('.cursor-circle');
-    const magnets = document.querySelectorAll('.magnet');
-
-    // Move cursor
-    document.addEventListener('mousemove', (e) => {
-        gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.1 });
-        gsap.to(cursorCircle, { x: e.clientX, y: e.clientY, duration: 0.3 });
-    });
-
-    // Magnetic Hover Effect
-    magnets.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            
-            gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3 });
-            gsap.to(cursorCircle, { scale: 1.5, borderColor: '#d4af37', duration: 0.3 });
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            gsap.to(btn, { x: 0, y: 0, duration: 0.3 });
-            gsap.to(cursorCircle, { scale: 1, borderColor: 'rgba(255,255,255,0.3)', duration: 0.3 });
-        });
-    });
-
-    // --- 3. About Section Overlay Logic ---
-    const openAbout = document.getElementById('open-about');
-    const closeAbout = document.getElementById('close-about');
-    const modal = document.getElementById('about-modal');
-
-    openAbout.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.add('active');
-        // Prevent body scroll
-        document.body.style.overflow = 'hidden';
-        
-        // Animate elements inside
-        gsap.fromTo(".modal-right > *", 
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, delay: 0.3 }
-        );
-    });
-
-    closeAbout.addEventListener('click', () => {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close if clicking outside content
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // --- 4. Live Date & Time (Footer) ---
-    function updateFooterData() {
+    // --- 1. Clock Functionality ---
+    function updateTime() {
+        const clockElement = document.getElementById('live-clock');
         const now = new Date();
-        
-        // Time with Seconds
-        const timeStr = now.toLocaleTimeString('en-US', { hour12: false });
-        // Date
-        const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: '2-digit' });
-
-        document.getElementById('clock').innerText = timeStr;
-        document.getElementById('date').innerText = dateStr;
+        const options = { 
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        };
+        clockElement.textContent = now.toLocaleDateString('en-US', options);
     }
-    setInterval(updateFooterData, 1000);
-    updateFooterData();
+    setInterval(updateTime, 1000);
+    updateTime(); // Initial call
 
-    // --- 5. Contact Form Simulation ---
+    // --- 2. Mobile Menu Toggle ---
+    const burger = document.querySelector('.burger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    burger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        burger.classList.toggle('toggle');
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // --- 3. About Overlay Logic (The "New Page/Flag" Effect) ---
+    const aboutBtn = document.getElementById('about-btn');
+    const mobileAboutBtn = document.getElementById('mobile-about-btn');
+    const overlay = document.getElementById('about-overlay');
+    const closeBtn = document.querySelector('.close-btn');
+
+    function openOverlay(e) {
+        e.preventDefault();
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
+        calculateAge(); // Recalculate age just in case
+    }
+
+    function closeOverlay() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    aboutBtn.addEventListener('click', openOverlay);
+    mobileAboutBtn.addEventListener('click', openOverlay);
+    closeBtn.addEventListener('click', closeOverlay);
+
+    // --- 4. Age Calculation ---
+    function calculateAge() {
+        const dob = new Date('2009-02-02');
+        const diff_ms = Date.now() - dob.getTime();
+        const age_dt = new Date(diff_ms); 
+        const age = Math.abs(age_dt.getUTCFullYear() - 1970);
+        
+        // Animate the number
+        const ageDisplay = document.getElementById('age-display');
+        ageDisplay.textContent = age;
+    }
+
+    // --- 5. Scroll Animations (Intersection Observer) ---
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // --- 6. Contact Form Handling ---
     const form = document.getElementById('contact-form');
-    const feedback = document.getElementById('form-feedback');
-
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+        
+        // Simulate sending (Frontend only)
         const btn = form.querySelector('button');
         const originalText = btn.innerHTML;
         
-        btn.innerHTML = "Sending...";
-        btn.style.opacity = "0.7";
+        btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
+        btn.style.opacity = '0.7';
 
-        // Simulate network request
         setTimeout(() => {
-            btn.innerHTML = "Message Sent";
-            btn.style.background = "#d4af37";
-            btn.style.borderColor = "#d4af37";
-            btn.style.color = "#000";
-            
-            feedback.innerText = "Thanks Aavash will get back to you shortly.";
-            feedback.style.color = "#d4af37";
-            
+            btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
+            btn.style.background = '#28a745'; // Green for success
             form.reset();
             
             setTimeout(() => {
                 btn.innerHTML = originalText;
-                btn.style.background = "transparent";
-                btn.style.color = "#fff";
-                btn.style.borderColor = "rgba(255,255,255,0.2)";
-                feedback.innerText = "";
+                btn.style.background = ''; // Revert to CSS
+                btn.style.opacity = '1';
+                alert("Thank you, Aavash will receive your message shortly.");
             }, 3000);
         }, 1500);
     });

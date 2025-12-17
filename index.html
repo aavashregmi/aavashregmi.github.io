@@ -3,156 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aavash Regmi | Digital Experience</title>
+    <title>Aavash Regmi | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,600&family=Syncopate:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-    <!-- GSAP Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Dynamic Animated Background -->
-    <div class="bg-container">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="noise-overlay"></div>
-    </div>
-
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">AR<span>.</span></div>
-        <div class="nav-links">
-            <a href="#home" class="magnet">Home</a>
-            <a href="#" id="open-about" class="magnet">About</a>
-            <a href="#contact" class="magnet">Contact</a>
+    <nav class="navbar">
+        <div class="logo">AR.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#" id="about-btn">About</a></li> <li><a href="#contact" class="cta-btn">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
         </div>
-        <div class="menu-btn magnet">Menu</div>
     </nav>
 
-    <!-- About Overlay (Glassmorphism) -->
-    <div id="about-modal" class="modal-overlay">
-        <button id="close-about" class="close-btn">&times;</button>
-        <div class="modal-content">
-            <div class="modal-left">
-                <div class="profile-frame">
-                    <div class="profile-img-placeholder">AR</div>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h4 class="modal-subtitle">The Architect</h4>
-                <h2 class="modal-title">Aavash Regmi</h2>
-                <p class="modal-bio">
-                    I exist at the intersection of design and logic. crafting premium digital 
-                    narratives that defy expectations. My work is not just seen; it is felt.
-                </p>
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <span>Born</span>
-                        <h3>2009.02.02</h3>
-                    </div>
-                    <div class="stat-box">
-                        <span>Based</span>
-                        <h3>Nepal</h3>
-                    </div>
-                    <div class="stat-box">
-                        <span>Focus</span>
-                        <h3>Web Luxury</h3>
+    <div class="mobile-menu">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#" class="mobile-link" id="mobile-about-btn">About</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <div id="about-overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close-btn">&times;</span>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="highlight">Innovator. Developer. Visionary.</p>
+                    <p>I am Aavash Regmi. I craft digital experiences that merge luxury with functionality. Born on <strong>February 2, 2009</strong>, I have dedicated my life to mastering the web.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-box">
+                            <span id="age-display">00</span>
+                            <p>Years Old</p>
+                        </div>
+                        <div class="stat-box">
+                            <span>100%</span>
+                            <p>Dedication</p>
+                        </div>
                     </div>
                 </div>
-                <div class="decoration-line"></div>
+                <div class="about-visual">
+                    <div class="glow-circle"></div>
+                    <i class="fas fa-code"></i>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <main id="home">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-text">
-                <h1 class="reveal-text">DIGITAL</h1>
-                <h1 class="reveal-text highlight">MASTERY</h1>
-                <p class="hero-sub">Curating the future of web interaction.</p>
-            </div>
-            <div class="scroll-down">
-                <span>Explore</span>
-                <div class="arrow">↓</div>
-            </div>
-        </section>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="fade-in">Welcome to the future</p>
+            <h1 class="fade-in delay-1">Aavash <span class="gradient-text">Regmi</span></h1>
+            <p class="subtitle fade-in delay-2">Building digital empires.</p>
+            <a href="#contact" class="primary-btn fade-in delay-3">Start a Project</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="line"></div>
+        </div>
+    </section>
 
-        <!-- Marquee Strip -->
-        <section class="marquee-section">
-            <div class="track">
-                <div class="content">
-                    &nbsp;UI/UX DESIGN ✦ WEB DEVELOPMENT ✦ BRAND STRATEGY ✦ ART DIRECTION ✦ 
-                    &nbsp;UI/UX DESIGN ✦ WEB DEVELOPMENT ✦ BRAND STRATEGY ✦ ART DIRECTION ✦ 
+    <section class="services">
+        <div class="container">
+            <div class="card reveal">
+                <i class="fas fa-palette"></i>
+                <h3>UI/UX Design</h3>
+                <p>Crafting jaw-dropping interfaces.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fas fa-globe"></i>
+                <h3>Web Development</h3>
+                <p>Responsive, fast, and secure code.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fas fa-rocket"></i>
+                <h3>Performance</h3>
+                <p>Optimized for every device.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title reveal">Get In Touch</h2>
+            <div class="contact-wrapper reveal">
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> contact@aavashregmi.com.np</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nepal</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-wrap">
-            <div class="contact-container">
-                <div class="contact-header">
-                    <h2>Initiate<br><span>Collaboration</span></h2>
-                    <p>Send a message. Let's build the impossible.</p>
-                </div>
-
-                <form id="contact-form" class="premium-form">
+                <form id="contact-form">
                     <div class="input-group">
-                        <input type="text" id="name" required autocomplete="off">
+                        <input type="text" id="name" required placeholder=" ">
                         <label for="name">Your Name</label>
-                        <div class="line"></div>
                     </div>
                     <div class="input-group">
-                        <input type="email" id="email" required autocomplete="off">
+                        <input type="email" id="email" required placeholder=" ">
                         <label for="email">Your Email</label>
-                        <div class="line"></div>
                     </div>
                     <div class="input-group">
-                        <textarea id="message" rows="1" required></textarea>
-                        <label for="message">Your Message</label>
-                        <div class="line"></div>
+                        <textarea id="message" required placeholder=" "></textarea>
+                        <label for="message">Message</label>
                     </div>
-                    <button type="submit" class="send-btn">
-                        <span>Send Message</span>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                    </button>
-                    <div id="form-feedback"></div>
+                    <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
-
-                <div class="direct-contact">
-                    <a href="mailto:contact@aavashregmi.com.np" class="email-link">contact@aavashregmi.com.np</a>
-                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-inner">
-            <p class="signature">MADE BY AAVASH REGMI</p>
+        <div class="footer-content">
+            <p class="creator">Made by Aavash Regmi</p>
+            <div id="live-clock" class="clock">00:00:00</div>
             
-            <div class="live-data">
-                <span id="clock">00:00:00</span>
-                <span class="divider">•</span>
-                <span id="date">Jan 01</span>
-            </div>
-
-            <div class="flag-wrapper">
-                <div class="usa-flag-wave">
-                    <div class="w-stripe"></div><div class="w-stripe"></div><div class="w-stripe"></div>
-                    <div class="w-stripe"></div><div class="w-stripe"></div><div class="w-stripe"></div>
-                    <div class="w-stripe"></div>
-                    <div class="w-union"></div>
+            <div class="flag-container">
+                <div class="flag usa">
+                    <div class="stripes"></div>
+                    <div class="blue-field">
+                        <div class="stars"></div>
+                    </div>
                 </div>
             </div>
         </div>
