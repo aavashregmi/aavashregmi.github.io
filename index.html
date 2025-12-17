@@ -3,125 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aavash Regmi | Portfolio</title>
+    <title>Aavash Regmi | Digital Experience</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for Premium Typography -->
+    <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- GSAP for Animations -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,600&family=Syncopate:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
+    <!-- Dynamic Animated Background -->
+    <div class="bg-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
     <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">AR.</div>
-        <div class="menu-items">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#about-trigger" class="nav-link about-btn">About</a>
-            <a href="#contact" class="nav-link">Contact</a>
+    <nav>
+        <div class="logo">AR<span>.</span></div>
+        <div class="nav-links">
+            <a href="#home" class="magnet">Home</a>
+            <a href="#" id="open-about" class="magnet">About</a>
+            <a href="#contact" class="magnet">Contact</a>
         </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-        </div>
+        <div class="menu-btn magnet">Menu</div>
     </nav>
 
-    <!-- About Section Overlay (The "New Plag") -->
-    <div class="about-overlay" id="about-overlay">
-        <div class="close-about">&times;</div>
-        <div class="about-content">
-            <div class="about-image">
-                <!-- Abstract placeholder for profile image -->
-                <div class="profile-placeholder">AR</div>
+    <!-- About Overlay (Glassmorphism) -->
+    <div id="about-modal" class="modal-overlay">
+        <button id="close-about" class="close-btn">&times;</button>
+        <div class="modal-content">
+            <div class="modal-left">
+                <div class="profile-frame">
+                    <div class="profile-img-placeholder">AR</div>
+                </div>
             </div>
-            <div class="about-text">
-                <h2 class="section-title">The Persona</h2>
-                <h1>AAVASH REGMI</h1>
-                <p class="bio">I craft digital experiences with a focus on minimalism and motion. Born to create, destined to innovate.</p>
-                
-                <div class="details-grid">
-                    <div class="detail-item">
-                        <span>Date of Birth</span>
-                        <h3>2009 &bull; 02 &bull; 02</h3>
+            <div class="modal-right">
+                <h4 class="modal-subtitle">The Architect</h4>
+                <h2 class="modal-title">Aavash Regmi</h2>
+                <p class="modal-bio">
+                    I exist at the intersection of design and logic. crafting premium digital 
+                    narratives that defy expectations. My work is not just seen; it is felt.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span>Born</span>
+                        <h3>2009.02.02</h3>
                     </div>
-                    <div class="detail-item">
-                        <span>Location</span>
-                        <h3>Nepal / Global</h3>
+                    <div class="stat-box">
+                        <span>Based</span>
+                        <h3>Nepal</h3>
                     </div>
-                    <div class="detail-item">
-                        <span>Expertise</span>
-                        <h3>Web Design & Dev</h3>
+                    <div class="stat-box">
+                        <span>Focus</span>
+                        <h3>Web Luxury</h3>
                     </div>
                 </div>
+                <div class="decoration-line"></div>
             </div>
         </div>
     </div>
 
     <!-- Main Content -->
-    <main>
+    <main id="home">
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-container">
-                <h1 class="hero-title">
-                    <div class="line"><span>DIGITAL</span></div>
-                    <div class="line"><span>ALCHEMIST</span></div>
-                </h1>
-                <p class="hero-subtitle">Premium Web Experiences</p>
+        <section class="hero">
+            <div class="hero-text">
+                <h1 class="reveal-text">DIGITAL</h1>
+                <h1 class="reveal-text highlight">MASTERY</h1>
+                <p class="hero-sub">Curating the future of web interaction.</p>
             </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="line"></div>
+            <div class="scroll-down">
+                <span>Explore</span>
+                <div class="arrow">↓</div>
             </div>
         </section>
 
-        <!-- Work/Portfolio Teaser -->
-        <section class="work-teaser">
-            <div class="marquee">
-                <div class="marquee-content">
-                    <span>CREATIVE DESIGN &mdash; WEB DEVELOPMENT &mdash; UI/UX &mdash; </span>
-                    <span>CREATIVE DESIGN &mdash; WEB DEVELOPMENT &mdash; UI/UX &mdash; </span>
+        <!-- Marquee Strip -->
+        <section class="marquee-section">
+            <div class="track">
+                <div class="content">
+                    &nbsp;UI/UX DESIGN ✦ WEB DEVELOPMENT ✦ BRAND STRATEGY ✦ ART DIRECTION ✦ 
+                    &nbsp;UI/UX DESIGN ✦ WEB DEVELOPMENT ✦ BRAND STRATEGY ✦ ART DIRECTION ✦ 
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="contact-sub">Have an idea? Let's build it.</p>
-                
-                <!-- Contact Form -->
-                <form id="contactForm" class="contact-form">
-                    <!-- Required for Web3Forms (No backend needed) -->
-                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"> 
-                    <!-- Replace value above with your actual key from web3forms.com if you want it to work instantly, 
-                         or use Formspree action url. for now it alerts success via JS -->
-                    
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder=" " required>
-                        <label>Your Name</label>
+        <section id="contact" class="contact-wrap">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2>Initiate<br><span>Collaboration</span></h2>
+                    <p>Send a message. Let's build the impossible.</p>
+                </div>
+
+                <form id="contact-form" class="premium-form">
+                    <div class="input-group">
+                        <input type="text" id="name" required autocomplete="off">
+                        <label for="name">Your Name</label>
+                        <div class="line"></div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder=" " required>
-                        <label>Your Email</label>
+                    <div class="input-group">
+                        <input type="email" id="email" required autocomplete="off">
+                        <label for="email">Your Email</label>
+                        <div class="line"></div>
                     </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="4" placeholder=" " required></textarea>
-                        <label>Your Message</label>
+                    <div class="input-group">
+                        <textarea id="message" rows="1" required></textarea>
+                        <label for="message">Your Message</label>
+                        <div class="line"></div>
                     </div>
-                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
-                    <p id="form-status"></p>
+                    <button type="submit" class="send-btn">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                    <div id="form-feedback"></div>
                 </form>
 
-                <div class="contact-info-direct">
-                    <a href="mailto:contact@aavashregmi.com.np">contact@aavashregmi.com.np</a>
+                <div class="direct-contact">
+                    <a href="mailto:contact@aavashregmi.com.np" class="email-link">contact@aavashregmi.com.np</a>
                 </div>
             </div>
         </section>
@@ -129,25 +138,21 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p class="maker-tag">MADE BY AAVASH REGMI</p>
+        <div class="footer-inner">
+            <p class="signature">MADE BY AAVASH REGMI</p>
             
-            <div class="time-container">
-                <span id="live-date"></span>
-                <span class="separator">|</span>
-                <span id="live-time"></span>
+            <div class="live-data">
+                <span id="clock">00:00:00</span>
+                <span class="divider">•</span>
+                <span id="date">Jan 01</span>
             </div>
 
-            <div class="flag-container">
-                <div class="usa-flag">
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="stripe"></div>
-                    <div class="blue-field"></div>
+            <div class="flag-wrapper">
+                <div class="usa-flag-wave">
+                    <div class="w-stripe"></div><div class="w-stripe"></div><div class="w-stripe"></div>
+                    <div class="w-stripe"></div><div class="w-stripe"></div><div class="w-stripe"></div>
+                    <div class="w-stripe"></div>
+                    <div class="w-union"></div>
                 </div>
             </div>
         </div>
