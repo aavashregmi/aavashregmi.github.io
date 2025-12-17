@@ -392,14 +392,3 @@ footer {
     .cursor, .cursor2 { display: none; } /* Disable custom cursor on mobile */
     * { cursor: auto; }
 }
- /* ===== MOBILE FIX ===== */
-@media (max-width: 768px) {
-    header {
-        min-height: 100svh;
-        padding-top: 120px;
-    }
-
-    .hero-title {
-        font-size: 2.6rem;
-    }
-}
