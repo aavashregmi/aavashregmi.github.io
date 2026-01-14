@@ -62,3 +62,32 @@ document.querySelectorAll('.nav-links li a').forEach(link => {
         navLinks.classList.remove('nav-active');
     });
 });
+// --- Contact Form AJAX Submission ---
+const form = document.getElementById('contact-form');
+const msgDiv = document.getElementById('form-message');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop default redirect
+
+    const data = new FormData(form);
+
+    fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            msgDiv.style.display = 'block'; // show success
+            form.reset(); // clear the form
+            setTimeout(() => { msgDiv.style.display = 'none'; }, 5000); // hide after 5s
+        } else {
+            response.json().then(data => {
+                alert(data.error || "Oops! Something went wrong.");
+            });
+        }
+    }).catch(error => {
+        alert("Oops! Could not send message.");
+    });
+});

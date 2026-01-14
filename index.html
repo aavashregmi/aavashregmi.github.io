@@ -151,24 +151,30 @@
                     </div>
                 </div>
 
-                <form action="https://formspree.io/f/xbddjndv" method="POST" class="contact-form">
-                    <h3>Send Message</h3>
-                    <div class="input-box">
-                        <input type="text" name="name" required="required">
-                        <span>Full Name</span>
-                    </div>
-                    <div class="input-box">
-                        <input type="email" name="email" required="required">
-                        <span>Email</span>
-                    </div>
-                    <div class="input-box">
-                        <textarea name="message" required="required"></textarea>
-                        <span>Type your Message...</span>
-                    </div>
-                    <div class="input-box">
-                        <input type="submit" value="Send">
-                    </div>
-                </form>
+               <form id="contact-form" action="https://formspree.io/f/xbddjndv" method="POST" class="contact-form">
+    <h3>Send Message</h3>
+    <div class="input-box">
+        <input type="text" name="name" required="required">
+        <span>Full Name</span>
+    </div>
+    <div class="input-box">
+        <input type="email" name="email" required="required">
+        <span>Email</span>
+    </div>
+    <div class="input-box">
+        <textarea name="message" required="required"></textarea>
+        <span>Type your Message...</span>
+    </div>
+    <div class="input-box">
+        <input type="submit" value="Send">
+    </div>
+</form>
+
+<!-- Success message -->
+<div id="form-message" style="display:none; color:#0f0; font-weight:bold; margin-top:10px;">
+    Message sent successfully! ✅
+</div>
+
             </div>
         </div>
     </section>
