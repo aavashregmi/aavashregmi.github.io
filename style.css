@@ -133,7 +133,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 4rem; /* Offset fixed header */
+    padding-top: 4rem;
 }
 
 .hero-content h3 {
@@ -450,7 +450,6 @@ body {
     transition: 0.5s;
 }
 
-/* Input Focus Animation */
 .input-box input:focus ~ span,
 .input-box input:valid ~ span,
 .input-box textarea:focus ~ span,
@@ -480,6 +479,93 @@ body {
     box-shadow: 0 0 20px var(--main-color);
 }
 
+/* --- Holographic Status Dashboard --- */
+.status-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 20px 4rem 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.status-card {
+    background: rgba(22, 27, 41, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    min-width: 600px;
+    justify-content: space-between;
+}
+
+.status-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 242, 234, 0.1) 0%, transparent 60%);
+    animation: rotateGlow 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.status-item { text-align: center; }
+
+.status-item .label {
+    font-size: 0.75rem;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#live-time {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(0, 242, 234, 0.5);
+}
+
+.divider {
+    width: 1px;
+    height: 60px;
+    background: var(--glass-border);
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.weather-icon {
+    font-size: 2.2rem;
+    color: #ffd700;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+#temperature { font-size: 1.8rem; font-weight: 700; }
+
 /* Footer */
 footer {
     padding: 2rem;
@@ -490,7 +576,7 @@ footer {
     color: #888;
 }
 
-/* --- Scroll Animations Classes --- */
+/* --- Scroll Animations --- */
 .hidden {
     opacity: 0;
     filter: blur(5px);
@@ -520,18 +606,16 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Responsive Media Queries --- */
+/* --- Media Queries --- */
 @media (max-width: 991px) {
-    .section { padding: 4rem 0; }
     .hero-content h1 { font-size: 3.5rem; }
     .about-grid { grid-template-columns: 1fr; }
-    .about-img { text-align: center; }
-    .about-img img { width: 70%; }
+    .status-card { min-width: auto; width: 90%; flex-direction: column; gap: 1.5rem; padding: 2rem; }
+    .divider { width: 80%; height: 1px; }
 }
 
 @media (max-width: 768px) {
-    .hamburger { display: block; z-index: 101; }
-    
+    .hamburger { display: block; }
     .nav-links {
         position: fixed;
         top: 0;
@@ -543,11 +627,6 @@ footer {
         justify-content: center;
         align-items: center;
         transition: 0.4s;
-        z-index: 100;
     }
-    
     .nav-links.nav-active { right: 0; }
-    
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 0.9rem; }
 }
