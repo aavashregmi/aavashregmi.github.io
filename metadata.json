@@ -1,8 +1,0 @@
-{
-  "name": "Elite Personal Portfolio",
-  "description": "A high-end, futuristic portfolio featuring real interactive projects, Firebase authentication, and cinematic animations.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
-}
