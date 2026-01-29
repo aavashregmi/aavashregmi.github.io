@@ -1,68 +1,609 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aavash Regmi | Elite Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Aavash Regmi | Digital Architect</title>
+
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #050505;
-      color: #ffffff;
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      overflow-x: hidden;
-    }
-    .font-luxury {
-      font-family: 'Playfair Display', serif;
-    }
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #0a0a0a;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #333;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-luxury-fade {
-      animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-  </style>
-<script type="importmap">
-{
-  "imports": {
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+
+  <link
+
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+
+    rel="stylesheet"
+
+  >
+
+  <link
+
+    rel="stylesheet"
+
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+
+  >
+
+  <link rel="stylesheet" href="style.css">
+
 </head>
+
+
+
 <body>
-  <div id="root"></div>
-<script type="module" src="/index.tsx"></script>
+
+  <div id="custom-cursor"></div>
+
+  <div class="bg-gradient"></div>
+
+
+
+  <nav class="navbar">
+
+    <div class="container nav-flex">
+
+      <a href="#" class="logo">Aavash<span>.</span></a>
+
+
+
+      <ul class="nav-links">
+
+        <li><a href="#home">Home</a></li>
+
+        <li><a href="#about">About</a></li>
+
+        <li><a href="#projects">Projects</a></li>
+
+        <li><a href="#contact" class="cta-btn">Contact Me</a></li>
+
+      </ul>
+
+
+
+      <div class="hamburger">
+
+        <i class="fas fa-bars"></i>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <section id="home" class="hero">
+
+    <div class="container hero-content">
+
+      <h3 class="fade-in">Hello, I'm</h3>
+
+      <h1 class="fade-in delay-1">Aavash Regmi</h1>
+
+      <h2 class="fade-in delay-2">
+
+        I am <span class="typing-text"></span>
+
+      </h2>
+
+      <p class="fade-in delay-3">
+
+        I create digital experiences that blend aesthetic elegance with technical
+
+        performance. Welcome to my personal universe.
+
+      </p>
+
+
+
+      <div class="social-icons fade-in delay-4">
+
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+        <a href="#"><i class="fab fa-github"></i></a>
+
+        <a href="#"><i class="fab fa-instagram"></i></a>
+
+        <a href="#"><i class="fab fa-twitter"></i></a>
+
+      </div>
+
+
+
+      <div class="hero-btns fade-in delay-4">
+
+        <a href="#projects" class="btn-primary">View My Work</a>
+
+
+
+        <a href="your-cv.pdf" class="btn-liquid" download>
+
+          <span class="btn-text">Download CV</span>
+
+          <div class="liquid"></div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="about" class="section">
+
+    <div class="container">
+
+      <h2 class="section-title hidden">
+
+        About <span>Me</span>
+
+      </h2>
+
+
+
+      <div class="about-grid">
+
+        <div class="about-img hidden">
+
+          <img
+
+            src="https://via.placeholder.com/500x600/161b29/00f2ea?text=Aavash+Regmi"
+
+            alt="Aavash Regmi"
+
+          >
+
+        </div>
+
+
+
+        <div class="about-text hidden">
+
+          <h3>Building the Future, One Line of Code at a Time.</h3>
+
+          <p>
+
+            I am a passionate developer based in Nepal. I specialize in building
+
+            jaw-dropping websites that not only look good but function perfectly.
+
+            My focus is on user experience, pixel-perfect design, and clean code.
+
+          </p>
+
+
+
+          <div class="skills-grid">
+
+            <div class="skill-card">
+
+              <i class="fab fa-html5"></i>
+
+              <span>HTML5</span>
+
+            </div>
+
+            <div class="skill-card">
+
+              <i class="fab fa-css3-alt"></i>
+
+              <span>CSS3</span>
+
+            </div>
+
+            <div class="skill-card">
+
+              <i class="fab fa-js"></i>
+
+              <span>JavaScript</span>
+
+            </div>
+
+            <div class="skill-card">
+
+              <i class="fab fa-react"></i>
+
+              <span>React</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="projects" class="section">
+
+    <div class="container">
+
+      <h2 class="section-title hidden">
+
+        My <span>Projects</span>
+
+      </h2>
+
+
+
+      <div class="projects-grid">
+
+        <div
+
+          class="project-card hidden"
+
+          data-tilt
+
+          data-tilt-max="10"
+
+          data-tilt-glare
+
+          data-tilt-max-glare="0.5"
+
+        >
+
+          <div class="project-img">
+
+            <img
+
+              src="https://via.placeholder.com/600x400/161b29/00f2ea?text=Nexus+Commerce"
+
+              alt="Project 1"
+
+            >
+
+            <div class="overlay">
+
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="project-info">
+
+            <h3>E-Commerce Platform</h3>
+
+            <p>A full-stack shopping experience with modern UI.</p>
+
+          </div>
+
+        </div>
+
+
+
+        <div
+
+          class="project-card hidden"
+
+          data-tilt
+
+          data-tilt-max="10"
+
+          data-tilt-glare
+
+          data-tilt-max-glare="0.5"
+
+        >
+
+          <div class="project-img">
+
+            <img
+
+              src="https://via.placeholder.com/600x400/161b29/ff0050?text=AI+Dashboard"
+
+              alt="Project 2"
+
+            >
+
+            <div class="overlay">
+
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="project-info">
+
+            <h3>AI Analytics Suite</h3>
+
+            <p>Data visualization using modern libraries.</p>
+
+          </div>
+
+        </div>
+
+
+
+        <div
+
+          class="project-card hidden"
+
+          data-tilt
+
+          data-tilt-max="10"
+
+          data-tilt-glare
+
+          data-tilt-max-glare="0.5"
+
+        >
+
+          <div class="project-img">
+
+            <img
+
+              src="https://via.placeholder.com/600x400/161b29/00f2ea?text=Portfolio+V2"
+
+              alt="Project 3"
+
+            >
+
+            <div class="overlay">
+
+              <a href="#"><i class="fas fa-external-link-alt"></i></a>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="project-info">
+
+            <h3>Portfolio v1</h3>
+
+            <p>High performance static site generation.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <section id="contact" class="section">
+
+    <div class="container">
+
+      <h2 class="section-title hidden">
+
+        Contact <span>Me</span>
+
+      </h2>
+
+
+
+      <div class="contact-container hidden">
+
+        <div class="contact-info">
+
+          <div class="box">
+
+            <div class="icon">
+
+              <i class="fas fa-map-marker-alt"></i>
+
+            </div>
+
+            <div class="text">
+
+              <h3>Address</h3>
+
+              <p>Kathmandu, Nepal</p>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="box">
+
+            <div class="icon">
+
+              <i class="fas fa-envelope"></i>
+
+            </div>
+
+            <div class="text">
+
+              <h3>Email</h3>
+
+              <p>contact@aavashregmi.com.np</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <form
+
+          id="contact-form"
+
+          action="https://formspree.io/f/xbddjndv"
+
+          method="POST"
+
+          class="contact-form"
+
+        >
+
+          <h3>Send Message</h3>
+
+
+
+          <div class="input-box">
+
+            <input type="text" name="name" required="required">
+
+            <span>Full Name</span>
+
+          </div>
+
+
+
+          <div class="input-box">
+
+            <input type="email" name="email" required="required">
+
+            <span>Email</span>
+
+          </div>
+
+
+
+          <div class="input-box">
+
+            <textarea name="message" required="required"></textarea>
+
+            <span>Type your Message...</span>
+
+          </div>
+
+
+
+          <div class="input-box">
+
+            <input type="submit" value="Send">
+
+          </div>
+
+
+
+          <div
+
+            id="form-message"
+
+            style="display:none; color:var(--main-color); font-weight:bold; margin-top:10px;"
+
+          >
+
+            Message sent successfully! ✅
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <div class="status-wrapper hidden">
+
+    <div class="status-card">
+
+      <div class="status-glow"></div>
+
+
+
+      <div class="status-item time-box">
+
+        <div class="label">
+
+          <i class="fas fa-clock"></i> Local Time
+
+        </div>
+
+        <h2 id="live-time">00:00:00</h2>
+
+        <p id="live-date">Loading Date...</p>
+
+      </div>
+
+
+
+      <div class="divider"></div>
+
+
+
+      <div class="status-item weather-box">
+
+        <div class="label">
+
+          <i class="fas fa-map-marker-alt"></i>
+
+          <span id="location-name">Detecting...</span>
+
+        </div>
+
+
+
+        <div class="weather-info">
+
+          <div class="weather-icon" id="weather-icon">
+
+            <i class="fas fa-spinner fa-spin"></i>
+
+          </div>
+
+          <div class="weather-temp">
+
+            <h2 id="temperature">--°C</h2>
+
+            <p id="weather-desc">Scanning...</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <footer>
+
+    <p>
+
+      Copyright &copy; 2025 by Aavash Regmi | All Rights Reserved.
+
+    </p>
+
+  </footer>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <script src="script.js"></script>
+
 </body>
+
 </html>
