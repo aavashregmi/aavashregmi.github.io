@@ -18,7 +18,7 @@ document.querySelectorAll(interactables).forEach(el => {
 
 // --- 2. Typing Effect ---
 const textElement = document.querySelector('.typing-text');
-const words = ["Web Developer", "UI/UX Designer", "Freelancer", "Tech Enthusiast"];
+const words = ["Man", "Person", "Learner", "Still learning"];
 let wordIndex = 0, charIndex = 0, isDeleting = false;
 
 function type() {
